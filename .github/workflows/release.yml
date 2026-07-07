@@ -8,7 +8,7 @@
 #
 # TEST builds for now: UNSIGNED (no Apple notarization / Windows cert) and no
 # auto-updater manifest. Code signing + notarization + the updater plugin are
-# Phase 9.2 — add the documented secrets (see docs/DISTRIBUTION.md, to come)
+# Phase 9.2 — add the documented secrets + wiring (see docs/DISTRIBUTION.md)
 # and flip `includeUpdaterJson` on then. Unsigned apps warn on first launch:
 # macOS → right-click ▸ Open; Windows → "More info" ▸ "Run anyway".
 
