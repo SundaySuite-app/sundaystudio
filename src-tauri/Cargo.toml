@@ -80,7 +80,7 @@ uuid = { version = "1", features = ["v7"] }
 reqwest = { version = "0.13", default-features = false, features = ["blocking", "json", "native-tls"] }
 
 # Type generation for the frontend (run with `cargo test export_bindings`)
-ts-rs = { version = "11", features = ["serde-compat"] }
+ts-rs = { version = "12", features = ["serde-compat"] }
 
 [dev-dependencies]
 tempfile = "3"
