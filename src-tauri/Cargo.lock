@@ -3960,7 +3960,7 @@ checksum = "7da8b5736845d9f2fcb837ea5d9e2628564b3b043a70948a3f0b778838c5fb4f"
 [[package]]
 name = "sunday-auth"
 version = "0.1.0"
-source = "git+https://github.com/richardfossland/sunday-platform.git?tag=v0.3.0#6aede56bbc49f63057746b34e9014716a94827ae"
+source = "git+https://github.com/richardfossland/sunday-platform.git?tag=v0.4.1#b6fab75d9eed17a2454dfdf86f30f550f2e72732"
 dependencies = [
  "base64 0.22.1",
  "getrandom 0.2.17",
