@@ -45,7 +45,7 @@ tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 # These two are load-bearing from Phase 0.1: cpal proves cross-platform device
 # I/O (CoreAudio / WASAPI) links and enumerates; hound proves we can write a
 # canonical WAV to disk. The rest of the engine grows on top of these.
-cpal = "0.15"
+cpal = "0.18"
 hound = "3.5"
 # Lock-free SPSC ring buffer — carries samples from the real-time audio
 # callback to the writer thread without locks or allocation (Phase 1.2).
