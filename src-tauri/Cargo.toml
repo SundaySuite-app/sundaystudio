@@ -49,7 +49,7 @@ cpal = "0.15"
 hound = "3.5"
 # Lock-free SPSC ring buffer — carries samples from the real-time audio
 # callback to the writer thread without locks or allocation (Phase 1.2).
-rtrb = "0.3"
+rtrb = "0.4"
 # Sample-rate conversion — pure-Rust, no C toolchain, so it compiles in the
 # default test gate. The capture path uses it when the input interface cannot
 # open at the project rate: the device is opened at a supported rate and every
