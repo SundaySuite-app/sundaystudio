@@ -211,7 +211,7 @@ mod tests {
         // After the startup transient the channels stay separated near ±1.
         // Check the back half (steady state) keeps ch0 ≈ +1, ch1 ≈ -1 in sign.
         let tail = &out[out.len() / 2..];
-        for frame in tail.chunks_exact(2) {
+        for frame in tail.as_chunks::<2>().0 {
             assert!(frame[0] > 0.0, "ch0 should stay positive, got {}", frame[0]);
             assert!(frame[1] < 0.0, "ch1 should stay negative, got {}", frame[1]);
         }
