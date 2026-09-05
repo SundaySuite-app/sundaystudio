@@ -60,8 +60,7 @@ export interface JingleRenderPlan {
 
 /** Validation result — either ok or an array of field-level errors. */
 export type ValidationResult =
-  | { ok: true }
-  | { ok: false; errors: ValidationError[] };
+  { ok: true } | { ok: false; errors: ValidationError[] };
 
 export interface ValidationError {
   field: keyof JingleSpec | "instruments.length";

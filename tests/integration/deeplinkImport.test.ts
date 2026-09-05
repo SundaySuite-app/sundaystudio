@@ -24,15 +24,13 @@ function makeIpc(overrides?: {
         return_to: "sundayrec",
       })),
   );
-  const projectNew = vi.fn(
-    async (name: string): Promise<ProjectMeta> => ({
-      id: "proj-1",
-      name,
-      path: `/data/projects/${name}.scast`,
-      created_at: 0,
-      updated_at: 0,
-    }),
-  );
+  const projectNew = vi.fn(async (name: string): Promise<ProjectMeta> => ({
+    id: "proj-1",
+    name,
+    path: `/data/projects/${name}.scast`,
+    created_at: 0,
+    updated_at: 0,
+  }));
   const importTakes = vi.fn(async (_paths: string[]) => ({}) as never);
 
   const client = {
