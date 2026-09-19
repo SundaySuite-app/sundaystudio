@@ -40,8 +40,12 @@ first launch: macOS → right-click ▸ Open; Windows → "More info" ▸ "Run a
 
 ## ⚠️ ffmpeg licensing — decide before ANY public release
 
-SundayStudio bundles ffmpeg (used by `src-tauri/src/commands/export.rs`). The
-common `ffmpeg-static` distribution is **GPL-3.0-or-later**, which is
+SundayStudio bundles ffmpeg (used by `src-tauri/src/commands/export.rs`):
+**ffmpeg 9.0.1**, fetched by `npm run fetch-ffmpeg` from ffmpeg.martin-riedl.de
+(macOS/Linux) and gyan.dev (Windows) with the archive and the unpacked binary
+both SHA-256-pinned — the same builds SundayRec, SundaySync and SundayEdit ship
+(until 2026-09 it was the `ffmpeg-static` 6.1.1 npm binary). Both are GPL builds
+(**GPL-3.0-or-later**, as ffmpeg-static was), which is
 **incompatible** with shipping SundayStudio as a proprietary/closed product
 without offering corresponding source for the whole combined work. Options
 before a public release (owner decision — same issue as SundayEdit):
