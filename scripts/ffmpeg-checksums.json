@@ -1,0 +1,6 @@
+{
+  "_comment": "SHA-256 pins for the ffmpeg sidecar fetched by scripts/fetch-ffmpeg.mjs, keyed by ffmpeg-<rust host triple>. SECOND pin layer on top of the per-archive SHA-256 in the script. ffmpeg 9.0.1 (2026-09-19; replaced the ffmpeg-static 6.1.1 binary). Same archives as SundayRec, so these are identical to the ffmpeg-* pins in sundayrec/scripts/ffmpeg-checksums.json, all computed on the owner's machine from archives first verified against the publishers' .sha256 files. Studio bundles no ffprobe.",
+  "ffmpeg-aarch64-apple-darwin": "393e4c395020a1cb7cbd77fbe00599ce69d1c6466fee0dbd59d13f86a81a1611",
+  "ffmpeg-x86_64-unknown-linux-gnu": "45e34db9aab2951db628c1ab069116f3c412e6a987b7f3d7ce00d8366157711a",
+  "ffmpeg-x86_64-pc-windows-msvc": "72a489eccd008c2ec2c0a5856c5c75bc3d8bbfa90166c4566865c246445e6aa3"
+}
