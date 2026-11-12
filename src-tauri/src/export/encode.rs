@@ -72,11 +72,7 @@ pub fn build_ffmetadata(chapters: &[ExportChapter], total_ms: f64) -> Option<Str
         out.push_str(&format!("title={}\n", escape_ffmetadata(&ch.title)));
         emitted += 1;
     }
-    if emitted == 0 {
-        None
-    } else {
-        Some(out)
-    }
+    if emitted == 0 { None } else { Some(out) }
 }
 
 /// Escape a value for an FFMETADATA `key=value` line: `=`, `;`, `#`, `\` and

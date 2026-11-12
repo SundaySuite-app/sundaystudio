@@ -15,8 +15,8 @@ use std::path::{Path, PathBuf};
 use std::thread::sleep;
 use std::time::Duration;
 
-use sundaystudio_lib::audio::recorder::{start_session, RecordConfig, TrackSpec};
-use sundaystudio_lib::commands::audio::{persist_recorded_take, RecordedTake};
+use sundaystudio_lib::audio::recorder::{RecordConfig, TrackSpec, start_session};
+use sundaystudio_lib::commands::audio::{RecordedTake, persist_recorded_take};
 use sundaystudio_lib::project;
 use sundaystudio_lib::project::{scast, store};
 

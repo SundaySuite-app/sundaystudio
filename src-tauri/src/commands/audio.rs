@@ -20,10 +20,10 @@ use crate::ai::shownotes::{self, ShowNotes, ShowNotesInput};
 use crate::ai::{self, ReqwestTransport};
 use crate::audio::playback::{self, PlaybackController, PlaybackTrack};
 use crate::audio::recorder::{
-    start_session, RecordConfig, RecordController, RecorderCommand, StreamHandle, TrackSpec,
+    RecordConfig, RecordController, RecorderCommand, StreamHandle, TrackSpec, start_session,
 };
 use crate::audio::{devices, settings, tone};
-use crate::commands::project::{current, ProjectState};
+use crate::commands::project::{ProjectState, current};
 use crate::dsp::loudness;
 use crate::error::{AppError, AppResult};
 use crate::export::render::{self, PlacedClip};
@@ -977,7 +977,7 @@ mod tests {
 
     #[tokio::test]
     async fn install_replaces_and_stops_the_previous_session() {
-        use crate::audio::playback::{start_playback, PlaybackTrack};
+        use crate::audio::playback::{PlaybackTrack, start_playback};
 
         let control = PlaybackControl::default();
         let first = start_playback(

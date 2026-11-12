@@ -375,17 +375,21 @@ mod tests {
     fn rejects_empty_and_overfull_instrument_lists() {
         let mut empty = good_spec();
         empty.instruments = vec!["   ".into()]; // only blanks → empty after trim
-        assert!(validate_spec(&empty)
-            .iter()
-            .any(|e| e.field == "instruments"));
+        assert!(
+            validate_spec(&empty)
+                .iter()
+                .any(|e| e.field == "instruments")
+        );
 
         let mut too_many = good_spec();
         too_many.instruments = (0..MAX_INSTRUMENTS + 1)
             .map(|i| format!("inst{i}"))
             .collect();
-        assert!(validate_spec(&too_many)
-            .iter()
-            .any(|e| e.field == "instruments.length"));
+        assert!(
+            validate_spec(&too_many)
+                .iter()
+                .any(|e| e.field == "instruments.length")
+        );
     }
 
     #[test]

@@ -20,16 +20,16 @@
 //! code. The data callback does only real-time-safe work: hand the interleaved
 //! block to `CaptureSink::push_interleaved`.
 
+use std::sync::Arc;
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::mpsc;
-use std::sync::Arc;
 use std::thread::{self, JoinHandle};
 use std::time::Duration;
 
-use cpal::traits::{DeviceTrait, HostTrait, StreamTrait};
 use cpal::SampleFormat;
+use cpal::traits::{DeviceTrait, HostTrait, StreamTrait};
 
-use super::rate::{select_capture_rate, RateRange};
+use super::rate::{RateRange, select_capture_rate};
 use super::resampler::BlockResampler;
 use super::session::CaptureSink;
 use crate::error::{AppError, AppResult};
@@ -166,7 +166,7 @@ pub fn build_capture_stream(
         other => {
             return Err(AppError::Audio(format!(
                 "unsupported input sample format: {other:?} (f32 and i16 supported)"
-            )))
+            )));
         }
     }
     .map_err(|e| AppError::Audio(format!("building input stream: {e}")))?;

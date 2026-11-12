@@ -6,7 +6,7 @@
 //! take-import flow itself (which lands the file on the timeline as a new take).
 
 use crate::error::AppResult;
-use crate::services::deeplink::{parse_import_url, ImportRequest};
+use crate::services::deeplink::{ImportRequest, parse_import_url};
 
 /// Parse a `sundaystudio://import?…` URL into a validated [`ImportRequest`].
 #[tauri::command]

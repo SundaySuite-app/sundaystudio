@@ -14,12 +14,12 @@
 use serde::{Deserialize, Serialize};
 use ts_rs::TS;
 
+use super::Effect;
 use super::compressor::Compressor;
 use super::eq::{EqBand, EqBandType, ParametricEq};
 use super::limiter::Limiter;
 use super::loudness::{self, LoudnessError, LoudnessTarget, NormalizationReport};
 use super::multiband::MultibandCompressor;
-use super::Effect;
 
 /// The bundled master processing chain.
 #[derive(Debug, Clone, Default)]

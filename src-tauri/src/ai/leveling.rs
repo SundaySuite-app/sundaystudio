@@ -17,7 +17,7 @@
 use serde::{Deserialize, Serialize};
 use ts_rs::TS;
 
-use super::{HttpTransport, ANTHROPIC_MESSAGES_URL, ANTHROPIC_VERSION, LEVELING_MODEL};
+use super::{ANTHROPIC_MESSAGES_URL, ANTHROPIC_VERSION, HttpTransport, LEVELING_MODEL};
 
 /// The largest gain change we'll ever apply from an AI suggestion, in dB. Claude
 /// is asked to stay within this; we clamp regardless so a bad reply is harmless.
@@ -420,14 +420,16 @@ mod tests {
         let seen = transport.seen.borrow();
         let req = seen.as_ref().unwrap();
         assert_eq!(req.url, ANTHROPIC_MESSAGES_URL);
-        assert!(req
-            .headers
-            .iter()
-            .any(|(k, v)| k == "x-api-key" && v == "sk-ant-test"));
-        assert!(req
-            .headers
-            .iter()
-            .any(|(k, v)| k == "anthropic-version" && v == ANTHROPIC_VERSION));
+        assert!(
+            req.headers
+                .iter()
+                .any(|(k, v)| k == "x-api-key" && v == "sk-ant-test")
+        );
+        assert!(
+            req.headers
+                .iter()
+                .any(|(k, v)| k == "anthropic-version" && v == ANTHROPIC_VERSION)
+        );
         // The body mentions the model and the target loudness.
         assert!(req.body.contains(LEVELING_MODEL));
         assert!(req.body.contains("-16"));

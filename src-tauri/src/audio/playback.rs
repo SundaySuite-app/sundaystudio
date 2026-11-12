@@ -33,8 +33,8 @@
 //! No master DSP or effects on the playback bus yet — that is the v2 first pass,
 //! the same way the monitor mixes dry (see `monitor.rs`).
 
-use std::sync::atomic::{AtomicBool, AtomicU64, Ordering};
 use std::sync::Arc;
+use std::sync::atomic::{AtomicBool, AtomicU64, Ordering};
 use std::thread::{self, JoinHandle};
 use std::time::Duration;
 

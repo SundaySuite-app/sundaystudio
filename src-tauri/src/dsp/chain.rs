@@ -7,12 +7,12 @@
 use serde::{Deserialize, Serialize};
 use ts_rs::TS;
 
+use super::Effect;
 use super::compressor::Compressor;
 use super::deesser::DeEsser;
 use super::eq::{EqBand, EqBandType, ParametricEq};
 use super::gate::Gate;
 use super::saturator::Saturator;
-use super::Effect;
 
 /// The bundled voice chain. Owns one of each effect.
 #[derive(Debug, Clone, Default)]

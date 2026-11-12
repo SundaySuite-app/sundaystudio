@@ -14,7 +14,7 @@ use std::f32::consts::SQRT_2;
 use std::thread::sleep;
 use std::time::Duration;
 
-use sundaystudio_lib::audio::recorder::{start_session, RecordConfig, RecordController, TrackSpec};
+use sundaystudio_lib::audio::recorder::{RecordConfig, RecordController, TrackSpec, start_session};
 use sundaystudio_lib::audio::tone;
 
 /// Count sign changes (zero crossings) in a sample slice.

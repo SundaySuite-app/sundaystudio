@@ -332,10 +332,12 @@ async fn region_can_be_moved_to_a_different_target_track() {
     moved.target_track_id = to.id.clone();
     store::update_region(&pool, &moved).await.unwrap();
 
-    assert!(store::list_regions(&pool, &from.id)
-        .await
-        .unwrap()
-        .is_empty());
+    assert!(
+        store::list_regions(&pool, &from.id)
+            .await
+            .unwrap()
+            .is_empty()
+    );
     assert_eq!(store::list_regions(&pool, &to.id).await.unwrap().len(), 1);
 }
 
@@ -394,10 +396,12 @@ async fn deleting_a_take_cascades_to_its_regions_but_spares_the_track() {
         .execute(&pool)
         .await
         .unwrap();
-    assert!(store::list_regions(&pool, &track.id)
-        .await
-        .unwrap()
-        .is_empty());
+    assert!(
+        store::list_regions(&pool, &track.id)
+            .await
+            .unwrap()
+            .is_empty()
+    );
     assert_eq!(store::list_tracks(&pool, &pid).await.unwrap().len(), 1);
 }
 

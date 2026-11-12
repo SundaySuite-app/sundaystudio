@@ -7,7 +7,7 @@
 //! later if users want to preserve lows during a sustained "sssss".
 
 use super::biquad::{Biquad, FilterType};
-use super::{db_to_gain, gain_to_db, time_coeff, Effect};
+use super::{Effect, db_to_gain, gain_to_db, time_coeff};
 
 #[derive(Debug, Clone)]
 pub struct DeEsser {

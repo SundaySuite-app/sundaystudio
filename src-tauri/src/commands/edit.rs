@@ -15,7 +15,7 @@ use std::path::{Path, PathBuf};
 use tauri::State;
 
 use crate::audio::peaks::{self, WaveformPeaks};
-use crate::commands::project::{current, ProjectState};
+use crate::commands::project::{ProjectState, current};
 use crate::dsp::silence::{self, SilenceSpan};
 use crate::error::{AppError, AppResult};
 use crate::export::render::read_wav_mono;
@@ -205,7 +205,9 @@ pub async fn import_takes(
         if rate != project_rate {
             return Err(AppError::Validation(format!(
                 "{} is {rate} Hz but the project is {project_rate} Hz — sample-rate conversion lands in a later phase",
-                path.file_name().map(|n| n.to_string_lossy().into_owned()).unwrap_or_default()
+                path.file_name()
+                    .map(|n| n.to_string_lossy().into_owned())
+                    .unwrap_or_default()
             )));
         }
         probed.push((path, duration_ms));

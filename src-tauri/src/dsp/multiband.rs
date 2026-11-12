@@ -14,9 +14,9 @@
 //! the block grows — steady-state (fixed block size) processing allocates
 //! nothing, honouring the engine's real-time discipline.
 
+use super::Effect;
 use super::biquad::{Biquad, FilterType};
 use super::compressor::Compressor;
-use super::Effect;
 
 /// Linkwitz-Riley 4th-order section: two identical Butterworth biquads cascaded.
 #[derive(Debug, Clone, Default)]

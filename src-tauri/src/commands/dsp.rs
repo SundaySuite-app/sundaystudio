@@ -8,9 +8,9 @@
 
 use std::path::PathBuf;
 
-use crate::dsp::chain::{preset_infos, PresetInfo};
+use crate::dsp::chain::{PresetInfo, preset_infos};
 use crate::dsp::loudness::{self, LoudnessMeasurement, LoudnessTarget};
-use crate::dsp::master::{master_preset_infos, MasterPresetInfo};
+use crate::dsp::master::{MasterPresetInfo, master_preset_infos};
 use crate::error::{AppError, AppResult};
 
 /// The bundled voice-processing presets (Voice / Bright Voice / Warm Voice /

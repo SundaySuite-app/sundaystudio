@@ -5,8 +5,8 @@
 use serde::{Deserialize, Serialize};
 use ts_rs::TS;
 
-use super::biquad::{Biquad, FilterType};
 use super::Effect;
+use super::biquad::{Biquad, FilterType};
 
 /// Band filter shape, mirrored to TS for the band editor.
 #[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize, TS)]
