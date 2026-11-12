@@ -20,7 +20,7 @@
 
 use std::collections::VecDeque;
 
-use super::{db_to_gain, Effect};
+use super::{Effect, db_to_gain};
 
 /// One entry in the look-ahead min-deque: the sample index a gain was computed
 /// at, and that gain. The deque keeps gains monotonically increasing so the

@@ -326,10 +326,10 @@ pub async fn project_delete(
     // If this project is currently open, close it.
     {
         let mut guard = state.current.lock().await;
-        if let Some(op) = guard.as_ref() {
-            if op.scast_dir == Path::new(&meta.path) {
-                guard.take();
-            }
+        if let Some(op) = guard.as_ref()
+            && op.scast_dir == Path::new(&meta.path)
+        {
+            guard.take();
         }
     }
 

@@ -364,11 +364,12 @@ mod tests {
             let b = backup_db(&scast).unwrap();
             assert!(b.exists());
             // A still-numeric stem keeps prune's chronological sort working.
-            assert!(b
-                .file_stem()
-                .and_then(|s| s.to_str())
-                .and_then(|s| s.parse::<u64>().ok())
-                .is_some());
+            assert!(
+                b.file_stem()
+                    .and_then(|s| s.to_str())
+                    .and_then(|s| s.parse::<u64>().ok())
+                    .is_some()
+            );
             paths.insert(b);
         }
         // All four are distinct files (under MAX_BACKUPS so none pruned).

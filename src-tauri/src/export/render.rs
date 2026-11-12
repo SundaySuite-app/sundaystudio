@@ -17,9 +17,9 @@
 
 use std::path::Path;
 
+use crate::dsp::Effect;
 use crate::dsp::loudness::{self, LoudnessError, LoudnessTarget, NormalizationReport};
 use crate::dsp::master::MasterPreset;
-use crate::dsp::Effect;
 
 /// A mono source track to fold into the mix, with its mixer state.
 pub struct MixSource {
@@ -343,7 +343,7 @@ mod tests {
         // preview) used 0.5 LU. An achieved loudness 0.7 LU off target then made the
         // two booleans about the *same* measurement disagree. Both must now use the
         // single canonical 0.5 LU verdict, so a 0.7-LU gap is NOT "reached".
-        use crate::dsp::loudness::{reached_target, REACHED_TOLERANCE_LU};
+        use crate::dsp::loudness::{REACHED_TOLERANCE_LU, reached_target};
         assert_eq!(REACHED_TOLERANCE_LU, 0.5);
         let target = -16.0_f32;
         // 0.7 LU off — inside the old 1.0 window but outside the canonical 0.5 one.

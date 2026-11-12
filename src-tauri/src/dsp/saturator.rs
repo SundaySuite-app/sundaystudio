@@ -77,10 +77,11 @@ mod tests {
         let mut buf = sine(440.0, SR, 1000);
         let before = buf.clone();
         s.process(&mut buf);
-        assert!(buf
-            .iter()
-            .zip(before.iter())
-            .all(|(a, b)| (a - b).abs() < 1e-6));
+        assert!(
+            buf.iter()
+                .zip(before.iter())
+                .all(|(a, b)| (a - b).abs() < 1e-6)
+        );
     }
 
     #[test]

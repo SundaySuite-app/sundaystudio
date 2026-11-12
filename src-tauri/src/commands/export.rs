@@ -18,11 +18,11 @@ use serde::{Deserialize, Serialize};
 use tauri::State;
 use ts_rs::TS;
 
-use crate::commands::project::{current, ProjectState};
+use crate::commands::project::{ProjectState, current};
+use crate::dsp::Effect;
 use crate::dsp::chain::Preset as VoicePreset;
 use crate::dsp::loudness::{self, LoudnessTarget, NormalizationReport};
 use crate::dsp::master::MasterPreset;
-use crate::dsp::Effect;
 use crate::error::{AppError, AppResult};
 use crate::export::encode::{self, EncodeError, ExportChapter};
 use crate::export::format::{self, ExportFormat, ExportPresetInfo};
@@ -395,10 +395,10 @@ fn encode_master(
 /// Mirrors SundayRec's `media::ffmpeg::ffmpeg_path`. A missing binary degrades
 /// to FfmpegUnavailable downstream (the user still gets the master WAV).
 fn ffmpeg_bin() -> String {
-    if let Ok(p) = std::env::var("SUNDAYSTUDIO_FFMPEG") {
-        if !p.is_empty() {
-            return p;
-        }
+    if let Ok(p) = std::env::var("SUNDAYSTUDIO_FFMPEG")
+        && !p.is_empty()
+    {
+        return p;
     }
     if let Some(p) = sidecar_ffmpeg() {
         return p;

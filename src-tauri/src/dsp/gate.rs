@@ -3,7 +3,7 @@
 //! the mix. A peak detector with a quick release drives an attack/hold/release
 //! gain envelope.
 
-use super::{db_to_gain, time_coeff, Effect};
+use super::{Effect, db_to_gain, time_coeff};
 
 /// Noise gate parameters + state.
 #[derive(Debug, Clone)]

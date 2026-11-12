@@ -79,12 +79,12 @@ pub fn load_or_compute(
     source_track_id: &str,
 ) -> AppResult<WaveformPeaks> {
     let cache = cache_path(scast_dir, take_id, source_track_id);
-    if let Ok(bytes) = fs::read(&cache) {
-        if let Ok(cached) = serde_json::from_slice::<WaveformPeaks>(&bytes) {
-            return Ok(cached);
-        }
-        // Corrupt cache: fall through and recompute.
+    if let Ok(bytes) = fs::read(&cache)
+        && let Ok(cached) = serde_json::from_slice::<WaveformPeaks>(&bytes)
+    {
+        return Ok(cached);
     }
+    // Corrupt cache: fall through and recompute.
 
     let wav = take_dir.join(format!("{source_track_id}.wav"));
     if !wav.exists() {

@@ -47,7 +47,7 @@
 //! rename fields here — change the canonical `sunday-contracts` contract first.
 
 use serde::{Deserialize, Serialize};
-use sunday_contracts::{parse_handoff_url, MediaHandoff, MediaKind};
+use sunday_contracts::{MediaHandoff, MediaKind, parse_handoff_url};
 use ts_rs::TS;
 
 use crate::error::{AppError, AppResult};

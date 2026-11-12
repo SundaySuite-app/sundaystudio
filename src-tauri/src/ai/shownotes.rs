@@ -28,7 +28,7 @@
 use serde::{Deserialize, Serialize};
 use ts_rs::TS;
 
-use super::{HttpTransport, ANTHROPIC_MESSAGES_URL, ANTHROPIC_VERSION, SHOWNOTES_MODEL};
+use super::{ANTHROPIC_MESSAGES_URL, ANTHROPIC_VERSION, HttpTransport, SHOWNOTES_MODEL};
 
 /// Upper bounds on the lists we'll accept from the model, so a runaway reply
 /// can't balloon app state. These are generous for a real episode and brutal
@@ -544,10 +544,12 @@ mod tests {
         // Chapters ordered, all within the 10-minute take.
         assert_eq!(notes.chapters.len(), 3);
         assert_eq!(notes.chapters[0].start_ms, 0.0);
-        assert!(notes
-            .chapters
-            .windows(2)
-            .all(|w| w[0].start_ms < w[1].start_ms));
+        assert!(
+            notes
+                .chapters
+                .windows(2)
+                .all(|w| w[0].start_ms < w[1].start_ms)
+        );
         assert_eq!(notes.tags, vec!["youth", "ministry", "faith"]);
         assert_eq!(notes.clips.len(), 2);
         assert!(notes.clips.iter().all(|c| c.end_ms > c.start_ms));
@@ -675,14 +677,16 @@ mod tests {
         let seen = transport.seen.borrow();
         let req = seen.as_ref().unwrap();
         assert_eq!(req.url, ANTHROPIC_MESSAGES_URL);
-        assert!(req
-            .headers
-            .iter()
-            .any(|(k, v)| k == "x-api-key" && v == "sk-ant-test"));
-        assert!(req
-            .headers
-            .iter()
-            .any(|(k, v)| k == "anthropic-version" && v == ANTHROPIC_VERSION));
+        assert!(
+            req.headers
+                .iter()
+                .any(|(k, v)| k == "x-api-key" && v == "sk-ant-test")
+        );
+        assert!(
+            req.headers
+                .iter()
+                .any(|(k, v)| k == "anthropic-version" && v == ANTHROPIC_VERSION)
+        );
         assert!(req.body.contains(SHOWNOTES_MODEL));
         assert!(req.body.contains("Ola Nordmann"));
         assert!(req.body.contains("Sermon recap"));

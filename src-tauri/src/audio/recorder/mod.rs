@@ -30,9 +30,9 @@ pub mod session;
 pub mod stream;
 pub mod writer;
 
-pub use command::{command_channel, CommandRx, CommandTx, RecorderCommand};
+pub use command::{CommandRx, CommandTx, RecorderCommand, command_channel};
 pub use meters::PeakMeters;
-pub use monitor::{mix_monitor_block, MonitorState, MAX_MONITOR_TRACKS};
-pub use session::{start_session, CaptureSink, RecordConfig, RecordController};
-pub use stream::{build_capture_stream, find_input_device, StreamHandle};
+pub use monitor::{MAX_MONITOR_TRACKS, MonitorState, mix_monitor_block};
+pub use session::{CaptureSink, RecordConfig, RecordController, start_session};
+pub use stream::{StreamHandle, build_capture_stream, find_input_device};
 pub use writer::{MultiTrackWriter, TrackSpec};

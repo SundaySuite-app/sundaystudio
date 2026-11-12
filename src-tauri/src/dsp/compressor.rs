@@ -2,7 +2,7 @@
 //! the everyday tool for evening out a speaker's dynamics. A level detector
 //! (attack/release-smoothed peak) drives a dB-domain gain computer.
 
-use super::{db_to_gain, gain_to_db, time_coeff, Effect};
+use super::{Effect, db_to_gain, gain_to_db, time_coeff};
 
 #[derive(Debug, Clone)]
 pub struct Compressor {

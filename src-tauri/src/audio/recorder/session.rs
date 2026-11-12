@@ -18,16 +18,16 @@
 //! recording UI in Phase 2.2.
 
 use std::path::{Path, PathBuf};
-use std::sync::atomic::{AtomicBool, AtomicU64, Ordering};
 use std::sync::Arc;
+use std::sync::atomic::{AtomicBool, AtomicU64, Ordering};
 use std::thread::{self, JoinHandle};
 use std::time::{Duration, Instant};
 
 use rtrb::{Consumer, Producer, RingBuffer};
 
-use super::command::{command_channel, CommandRx, CommandTx, RecorderCommand};
+use super::command::{CommandRx, CommandTx, RecorderCommand, command_channel};
 use super::meters::PeakMeters;
-use super::monitor::{mix_monitor_block, MonitorState};
+use super::monitor::{MonitorState, mix_monitor_block};
 use super::writer::{MultiTrackWriter, TrackSpec};
 use crate::error::{AppError, AppResult};
 

@@ -57,11 +57,7 @@ fn lin_to_db(x: f64) -> Option<f32> {
 /// Pass a loudness/LU value through only if it is finite (ebur128 returns
 /// `-inf` when a buffer never crosses the absolute gate, i.e. it is silent).
 fn finite(x: f64) -> Option<f32> {
-    if x.is_finite() {
-        Some(x as f32)
-    } else {
-        None
-    }
+    if x.is_finite() { Some(x as f32) } else { None }
 }
 
 /// A loudness snapshot. Every field is `None` when undefined (silence, or a
